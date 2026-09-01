@@ -1,0 +1,65 @@
+Artificial intelligence is changing the way people work, learn, and communicate.
+Large language models are a powerful example of modern artificial intelligence.
+A language model learns patterns from large amounts of text.
+The model receives text as tokens and converts those tokens into numerical IDs.
+These numerical IDs are processed by a neural network.
+
+Tokenization is the first stage in our language model pipeline.
+A tokenizer takes raw text and divides it into smaller pieces called tokens.
+A token may represent a word, part of a word, punctuation, or a special symbol.
+The tokenizer creates a vocabulary containing the unique tokens found in the training data.
+Each token in the vocabulary receives a unique integer ID.
+The mapping from tokens to IDs allows the neural network to process text numerically.
+
+For example, a sentence can be converted into tokens.
+Those tokens can then be converted into token IDs.
+The token IDs are passed to the embedding layer of the language model.
+The embedding layer converts each token ID into a vector representation.
+These vectors are then processed by the Transformer architecture.
+
+Transformers use attention to understand relationships between tokens.
+Self attention allows the model to consider information from other tokens in the sequence.
+The model uses queries, keys, and values to calculate attention.
+Multiple attention heads allow the model to learn different relationships.
+The output of attention is passed through a feed forward network.
+
+A Transformer contains multiple Transformer blocks.
+Each block contains attention, normalization, residual connections, and a feed forward network.
+The output of the final Transformer block is used to predict the next token.
+This is the basic idea behind an autoregressive language model.
+
+During training, the model receives a sequence of tokens.
+The target is usually the next token in the sequence.
+The model predicts a probability distribution over the vocabulary.
+The predicted distribution is compared with the correct target.
+A loss function measures the prediction error.
+Backpropagation is then used to update the model parameters.
+
+After training, the language model can generate text.
+The user provides a prompt.
+The tokenizer converts the prompt into token IDs.
+The model processes those token IDs and predicts the next token.
+The predicted token is added to the sequence.
+The model then predicts another token.
+This process continues until the model generates an end of text token.
+
+Large language models can contain millions or billions of parameters.
+These parameters are learned during training.
+The quality of the training data has a major effect on the quality of the model.
+Good tokenization, useful training data, and an appropriate model architecture are important parts of building a language model.
+
+Retrieval augmented generation can provide external information to a language model.
+A retrieval system searches a collection of documents.
+Relevant documents are retrieved and provided to the language model.
+The model can then generate an answer using the retrieved information.
+This approach is useful when the model needs information that may not be present in its training data.
+
+Python is commonly used to build machine learning applications.
+PyTorch can be used to implement and train neural networks.
+Libraries such as LangChain and LangGraph can be used to build applications around language models.
+Vector databases can be used to store and retrieve embeddings.
+These technologies can be combined to create modern LLM applications.
+
+The future of artificial intelligence will involve increasingly capable language models.
+Language models may assist with programming, research, education, customer support, and many other tasks.
+Understanding tokenization, embeddings, attention, Transformers, training, and generation provides a strong foundation for understanding how these systems work.
