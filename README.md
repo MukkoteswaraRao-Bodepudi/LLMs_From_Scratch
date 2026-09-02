@@ -293,4 +293,4 @@ Building a strong understanding of the fundamental components required to constr
 
 **Mukkoteswara Rao Bodepudi**
 
-Learning and building Large Language Models from the fundamentals.
+Learning and building Large Language Models from the fundamentals
