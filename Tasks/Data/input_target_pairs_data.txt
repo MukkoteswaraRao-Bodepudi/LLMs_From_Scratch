@@ -1,0 +1,138 @@
+Artificial intelligence is changing the way people interact with technology. 
+Modern software systems can understand language, recognize patterns, analyze information, 
+and generate useful responses. These capabilities are built using algorithms that learn 
+from large amounts of data.
+
+Machine learning is a major part of artificial intelligence. A machine learning system 
+learns patterns from examples instead of relying entirely on manually written rules. 
+During training, the system receives data and adjusts its internal parameters to improve 
+its predictions. The quality of the training data has a significant impact on the quality 
+of the resulting model.
+
+Deep learning is a specialized area of machine learning that uses neural networks with 
+multiple layers. These networks can learn complex representations from raw data. Deep 
+learning has been successfully applied to computer vision, speech recognition, natural 
+language processing, recommendation systems, and many other applications.
+
+Natural language processing focuses on enabling computers to work with human language. 
+Before a language model can process text, the text must be converted into a numerical 
+representation. Tokenization is one of the first steps in this process. A tokenizer 
+breaks text into smaller units called tokens and maps those tokens to numerical IDs.
+
+Different tokenization algorithms can produce different tokens for the same sentence. 
+Some tokenizers represent complete words as individual tokens, while others represent 
+words using smaller subword units. Subword tokenization allows a model to handle words 
+that may not appear frequently in its vocabulary.
+
+Byte Pair Encoding is a popular subword tokenization technique. It starts with smaller 
+units and learns frequently occurring combinations of those units. Frequently occurring 
+sequences can become individual tokens. This allows the vocabulary to represent common 
+patterns efficiently while still being able to process unfamiliar words.
+
+After tokenization, the text is represented as a sequence of token IDs. These token IDs 
+can then be organized into training examples. Language models commonly use these examples 
+to learn the relationship between a sequence of tokens and the tokens that follow it.
+
+Consider a sequence of tokens representing a sentence. Instead of giving the entire 
+sequence to the model as one training example, we can create smaller sequences using a 
+sliding window. Each input sequence is paired with a target sequence that is shifted by 
+one token.
+
+For example, if an input contains several consecutive tokens, the target contains the 
+same sequence starting from the next token. This allows the model to learn next-token 
+prediction. The model receives the previous tokens as context and learns to predict what 
+should come next.
+
+The size of the input sequence is controlled by the context length. A larger context 
+allows the model to consider more previous tokens when making a prediction. A smaller 
+context creates shorter training sequences. Choosing an appropriate context length is 
+important when preparing data for language model training.
+
+The sliding window can also move by different numbers of tokens. This movement is called 
+the stride. A small stride creates more overlapping training examples, while a larger 
+stride creates fewer overlapping examples. The choice of stride affects how the available 
+text is converted into training data.
+
+For example, imagine a sequence containing information about a weather forecast. 
+The model may receive several tokens describing the current conditions and learn to 
+predict the next token. As the window moves through the sequence, the model receives 
+different contexts and corresponding targets.
+
+Training examples can be created from books, articles, documentation, conversations, 
+research papers, websites, and other text sources. Large language models require enormous 
+amounts of training data because they need to learn statistical patterns across language.
+
+However, simply having a large amount of text is not enough. Training data should be 
+processed carefully. Duplicate content, corrupted text, irrelevant information, and 
+poor-quality data can negatively affect the training process. Data preparation is 
+therefore an important part of building a language model.
+
+Once input-target pairs have been created, they can be organized into batches. A batch 
+contains multiple training examples that are processed together. Batch processing allows 
+the training process to make efficient use of computational resources.
+
+A dataset is responsible for providing individual training examples, while a data loader 
+can organize those examples into batches. During training, batches are repeatedly provided 
+to the language model. The model produces predictions, compares them with the target 
+tokens, calculates a loss, and updates its parameters.
+
+The loss represents how different the model's predictions are from the expected targets. 
+During training, the objective is to reduce this loss by adjusting the model parameters. 
+Repeated training allows the model to gradually improve its ability to predict the next 
+token.
+
+Next-token prediction is a fundamental objective used by autoregressive language models. 
+At each position, the model uses the tokens that came before the current position as 
+context. It then produces a probability distribution over possible next tokens.
+
+For example, given the beginning of a sentence, several different words may be possible 
+as the next token. The model assigns probabilities to those possibilities. During training, 
+the target token provides the expected answer used to calculate the loss.
+
+After a model has been trained, the same next-token prediction mechanism can be used to 
+generate new text. The model receives an initial sequence, predicts a next token, adds 
+that token to the sequence, and then predicts another token. This process can continue 
+until the model reaches a stopping condition.
+
+This creates an important connection between training and generation. During training, 
+the model learns from input-target pairs. During generation, the model uses what it has 
+learned to predict one token at a time.
+
+Embeddings provide another important representation used by language models. Token IDs 
+are discrete numerical identifiers, but the model needs richer numerical representations 
+to capture relationships between tokens. Embedding layers transform token IDs into 
+continuous vectors.
+
+These vectors allow tokens with related meanings or usage patterns to develop useful 
+relationships in the learned representation space. Embeddings are therefore an important 
+bridge between token IDs and the neural network computations performed by the model.
+
+A Transformer-based language model contains several components that work together. 
+Token embeddings provide representations of tokens, positional information represents 
+the order of tokens, and attention mechanisms allow the model to consider relationships 
+between different positions in a sequence.
+
+Self-attention allows each token to interact with other tokens in the context. This helps 
+the model determine which parts of the input are important when producing a representation 
+for a particular position. Multi-head attention extends this idea by allowing different 
+attention mechanisms to operate in parallel.
+
+Transformer blocks combine attention mechanisms with feed-forward neural networks and 
+other components required for stable and effective training. Multiple Transformer blocks 
+can be stacked together to create a deeper language model.
+
+The complete process begins with raw text. The text is tokenized, converted into token IDs, 
+and organized into input-target pairs. These pairs are provided to the model during 
+training. The model learns to predict target tokens from input tokens and gradually 
+adjusts its parameters based on the training loss.
+
+Understanding this pipeline is important when learning how large language models work. 
+Instead of treating an LLM as a black box, each stage can be studied independently. 
+Tokenization explains how text becomes numerical data. Input-target pairs explain how 
+that data becomes a training objective. The model architecture explains how predictions 
+are generated, and optimization explains how the model learns from its mistakes.
+
+Building a language model from scratch therefore requires understanding both the data 
+pipeline and the neural network architecture. Each component contributes to the final 
+system, and understanding the connection between these components provides a strong 
+foundation for studying modern language models.

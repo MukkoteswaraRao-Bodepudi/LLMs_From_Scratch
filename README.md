@@ -283,6 +283,56 @@ The goal is not simply to use existing LLMs, but to understand the fundamental m
 - Tokenization practical tasks
 - BPE practical tasks
 
+
+### Day 3 — Input-Target Pairs
+
+Learned how tokenized text is converted into input-target pairs for language-model training.
+
+The main objective is to prepare training examples so that a language model can learn **next-token prediction**.
+
+Topics covered:
+
+- Input sequences
+- Target sequences
+- Next-token prediction
+- Context size
+- Sliding-window approach
+- Stride
+- PyTorch Dataset
+- PyTorch DataLoader
+- Batching
+- Tensor representation
+- Training data preparation
+
+The key relationship is:
+
+**Target = Input shifted by one token**
+
+For example:
+
+Input:
+
+`[5, 12, 25]`
+
+Target:
+
+`[12, 25, 41]`
+
+The model uses the input sequence to learn which token should come next.
+
+The input-target relationship can be represented as:
+
+```text
+Input:  I
+Target: love
+
+Input:  I love
+Target: learning
+
+Input:  I love learning
+Target: LLMs 
+```
+
 ### Current Focus
 
 Building a strong understanding of the fundamental components required to construct an LLM from scratch.
