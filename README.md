@@ -333,6 +333,290 @@ Input:  I love learning
 Target: LLMs 
 ```
 
+# Token Embeddings
+
+## What Are Token Embeddings?
+
+**Token embeddings convert token IDs into numerical vectors** that an LLM can process.
+
+The basic flow is:
+
+```text
+Text
+ ↓
+Tokens
+ ↓
+Token IDs
+ ↓
+Token Embeddings
+ ↓
+Transformer
+ ↓
+Prediction
+```
+
+### Simple Example
+
+Suppose:
+
+```text
+Token: "hello"
+Token ID: 125
+```
+
+The model converts `125` into an embedding vector:
+
+```text
+125 → [0.21, -0.45, 0.78, 0.12, ...]
+```
+
+This vector is called the **token embedding**.
+
+---
+
+## Why Do We Need Token Embeddings?
+
+A token ID is just a number.
+
+```text
+"hello" → 125
+"world" → 892
+```
+
+The numbers `125` and `892` don't contain useful meaning by themselves.
+
+So, the model converts them into vectors:
+
+```text
+125 → [0.21, -0.45, 0.78, ...]
+892 → [0.15,  0.62, -0.31, ...]
+```
+
+These vectors are what the neural network works with.
+
+---
+
+## Embedding Matrix
+
+All token embeddings are stored in an **embedding matrix**.
+
+Its shape is:
+
+```text
+Vocabulary Size × Embedding Dimension
+```
+
+For example:
+
+```text
+Vocabulary Size = 5
+Embedding Dimension = 4
+```
+
+The embedding matrix looks like:
+
+```text
+[
+  [0.2,  0.5, -0.1, 0.7],   ← Token 0
+  [0.4, -0.2,  0.8, 0.1],   ← Token 1
+  [0.6,  0.3,  0.2, 0.9],   ← Token 2
+  [0.1,  0.7, -0.4, 0.5],   ← Token 3
+  [0.8, -0.1,  0.6, 0.2]    ← Token 4
+]
+```
+
+Each **row** represents one token's embedding.
+
+---
+
+## Vocabulary Size
+
+**Vocabulary size = Total number of tokens in the vocabulary.**
+
+For example:
+
+```text
+Vocabulary Size = 50,000
+```
+
+means the model has 50,000 token entries.
+
+Therefore, the embedding matrix has **50,000 rows**.
+
+---
+
+## Embedding Dimension
+
+**Embedding dimension = Number of values in each token vector.**
+
+For example:
+
+```text
+Embedding Dimension = 768
+```
+
+means each token is represented by a vector containing 768 numbers.
+
+```text
+Token → [x₁, x₂, x₃, ... x₇₆₈]
+```
+
+---
+
+## How Does the Embedding Layer Work?
+
+The embedding layer works like a **lookup table**.
+
+```text
+Token ID
+   ↓
+Find the corresponding row
+   ↓
+Return the embedding vector
+```
+
+For example:
+
+```text
+Token ID = 3
+
+Embedding Matrix
+       ↓
+Row 3
+       ↓
+[0.1, 0.7, -0.4, 0.5]
+```
+
+So:
+
+```text
+Token ID → Embedding Vector
+```
+
+---
+
+## Are Embeddings Trainable?
+
+**Yes.**
+
+Token embeddings are **trainable parameters** of the model.
+
+During training:
+
+```text
+Input
+  ↓
+Token Embeddings
+  ↓
+Transformer
+  ↓
+Prediction
+  ↓
+Loss
+  ↓
+Update Parameters
+```
+
+The embedding values are gradually updated as the model learns.
+
+---
+
+## Token ID vs Token Embedding
+
+| Token ID                      | Token Embedding                     |
+| ----------------------------- | ----------------------------------- |
+| A single number               | A vector of numbers                 |
+| Identifies a token            | Represents a token numerically      |
+| Example: `125`                | Example: `[0.21, -0.45, 0.78, ...]` |
+| Used to look up the embedding | Used by the neural network          |
+
+In short:
+
+```text
+Token
+  ↓
+Token ID
+  ↓
+Token Embedding
+```
+
+---
+
+## Tensor Shape
+
+Before embedding:
+
+```text
+Batch Size × Context Length
+```
+
+Example:
+
+```text
+4 × 16
+```
+
+After embedding:
+
+```text
+Batch Size × Context Length × Embedding Dimension
+```
+
+Example:
+
+```text
+4 × 16 × 768
+```
+
+This means:
+
+* `4` → Number of sequences
+* `16` → Number of tokens per sequence
+* `768` → Numbers representing each token
+
+---
+
+## Easy Way to Remember
+
+Think of token embeddings as a **lookup table**:
+
+```text
+Token ID
+   ↓
+┌─────────────────────┐
+│ Embedding Matrix     │
+│                     │
+│ Row 0 → Vector      │
+│ Row 1 → Vector      │
+│ Row 2 → Vector      │
+│ Row 3 → Vector      │
+│ ...                 │
+└─────────────────────┘
+   ↓
+Embedding Vector
+   ↓
+Transformer
+```
+
+### Key Takeaway
+
+> **Token IDs identify tokens, while token embeddings represent those tokens as vectors that the LLM can process.**
+
+```text
+Text
+ ↓
+Tokenization
+ ↓
+Token IDs
+ ↓
+Token Embeddings
+ ↓
+Transformer
+ ↓
+Next-Token Prediction
+```
+
+
 ### Current Focus
 
 Building a strong understanding of the fundamental components required to construct an LLM from scratch.
