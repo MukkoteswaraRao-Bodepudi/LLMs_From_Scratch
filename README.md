@@ -223,66 +223,6 @@ This makes it possible to handle common words, rare words, and different word fo
 
 ---
 
-## 🎯 Long-Term Objective
-
-The long-term objective of this repository is to build a small Transformer-based Large Language Model from scratch.
-
-The project will progressively cover:
-
-- Text processing
-- Tokenization
-- Vocabulary
-- Token IDs
-- Training data preparation
-- Embeddings
-- Positional information
-- Self-attention
-- Multi-head attention
-- Feed-forward networks
-- Transformer blocks
-- Language-model architecture
-- Loss calculation
-- Training
-- Next-token prediction
-- Text generation
-
-The primary objective is to understand **why each component is required, how it works, and how the components work together to form an LLM**.
-
----
-
-## 📖 Learning Approach
-
-Each stage of the project follows a practical learning process:
-
-1. Understand the concept
-2. Study the underlying idea
-3. Implement the concept
-4. Experiment with examples
-5. Create practical tasks
-6. Analyze the results
-7. Document the learning
-
-The goal is not simply to use existing LLMs, but to understand the fundamental mechanisms behind them.
-
----
-
-## 🚧 Project Status
-
-**In Progress**
-
-### Completed
-
-- LLM fundamentals
-- Tokenization
-- Vocabulary
-- Token IDs
-- Encoding and decoding
-- Special tokens
-- Byte Pair Encoding
-- GPT-2 tokenizer exploration
-- Tokenization practical tasks
-- BPE practical tasks
-
 
 ### Day 3 — Input-Target Pairs
 
@@ -333,7 +273,7 @@ Input:  I love learning
 Target: LLMs 
 ```
 
-# Token Embeddings
+# Day 4 Token Embeddings
 
 ## What Are Token Embeddings?
 
@@ -620,6 +560,49 @@ Next-Token Prediction
 ### Current Focus
 
 Building a strong understanding of the fundamental components required to construct an LLM from scratch.
+
+---
+
+## 🎯 Long-Term Objective
+
+The long-term objective of this repository is to build a small Transformer-based Large Language Model from scratch.
+
+The project will progressively cover:
+
+- Text processing
+- Tokenization
+- Vocabulary
+- Token IDs
+- Training data preparation
+- Embeddings
+- Positional information
+- Self-attention
+- Multi-head attention
+- Feed-forward networks
+- Transformer blocks
+- Language-model architecture
+- Loss calculation
+- Training
+- Next-token prediction
+- Text generation
+
+The primary objective is to understand **why each component is required, how it works, and how the components work together to form an LLM**.
+
+---
+
+## 📖 Learning Approach
+
+Each stage of the project follows a practical learning process:
+
+1. Understand the concept
+2. Study the underlying idea
+3. Implement the concept
+4. Experiment with examples
+5. Create practical tasks
+6. Analyze the results
+7. Document the learning
+
+The goal is not simply to use existing LLMs, but to understand the fundamental mechanisms behind them.
 
 ---
 
