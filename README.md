@@ -555,6 +555,150 @@ Transformer
  ↓
 Next-Token Prediction
 ```
+# Day 5 Positional Embeddings
+
+## What is Positional Embedding?
+
+Positional embedding tells the model **where a token is located**.
+
+```text
+Token Embedding      → WHAT is the token?
+Positional Embedding → WHERE is the token?
+```
+
+Example:
+
+```text
+I love Python
+
+I       → Position 0
+love    → Position 1
+Python  → Position 2
+```
+
+---
+
+## Input Batch
+
+In this example:
+
+```text
+16 sequences
+8 tokens per sequence
+512 dimensions per token
+```
+
+So the token embeddings have:
+
+```text
+[16, 8, 512]
+```
+
+Meaning:
+
+```text
+16  → number of sequences
+8   → tokens in each sequence
+512 → dimensions for each token
+```
+
+---
+
+## Positional Embeddings
+
+There are 8 token positions:
+
+```text
+0  1  2  3  4  5  6  7
+```
+
+Each position has a 512-dimensional vector.
+
+Therefore:
+
+```text
+[8, 512]
+```
+
+Meaning:
+
+```text
+8   → number of positions
+512 → dimensions for each position
+```
+
+---
+
+## Combining Them
+
+```text
+Token Embedding
+[16, 8, 512]
+
+        +
+
+Positional Embedding
+[8, 512]
+
+        ↓
+
+Input Embedding
+[16, 8, 512]
+```
+
+The same 8 positional vectors are used for all 16 sequences.
+
+```text
+Sequence 1 → positions 0–7
+Sequence 2 → positions 0–7
+Sequence 3 → positions 0–7
+...
+Sequence 16 → positions 0–7
+```
+
+---
+
+## Token ID vs Position ID
+
+```text
+Token ID     → identifies the token
+Position ID  → identifies the token's position
+```
+
+Example:
+
+```text
+Python → Token ID = some number
+Python → Position ID = 2
+```
+
+---
+
+## Shape Summary
+
+| Tensor              | Shape          | Meaning                 |
+| ------------------- | -------------- | ----------------------- |
+| Token IDs           | `[16, 8]`      | 16 sequences × 8 tokens |
+| Token Embeddings    | `[16, 8, 512]` | 16 × 8 × 512            |
+| Position Embeddings | `[8, 512]`     | 8 positions × 512       |
+| Input Embeddings    | `[16, 8, 512]` | Token + Position        |
+
+---
+
+## Remember
+
+```text
+Token Embedding      = WHAT
+Positional Embedding = WHERE
+
+WHAT + WHERE
+     ↓
+Input Embedding
+```
+
+**`[16, 8, 512]` = 16 sequences × 8 tokens × 512 dimensions**
+
+**`[8, 512]` = 8 positions × 512 dimensions**
 
 
 ### Current Focus

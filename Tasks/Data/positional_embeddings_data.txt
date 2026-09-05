@@ -1,0 +1,29 @@
+Language models learn patterns from large amounts of text. A language model reads tokens and learns how those tokens are related to each other. Token embeddings provide numerical representations of tokens, while positional embeddings provide information about where those tokens appear in a sequence.
+
+Understanding the position of a token is important because the order of words can change the meaning of a sentence. The sentence "the dog chased the cat" is different from "the cat chased the dog". The same words can appear in both sentences, but their positions are different. A transformer needs positional information to understand the order of the tokens.
+
+When text is processed by a language model, the text is first converted into tokens. These tokens are then converted into token IDs. Token IDs are numerical identifiers used to represent tokens. The token IDs are passed through an embedding layer, which converts them into dense numerical vectors.
+
+However, token embeddings alone do not tell the model where each token appears in the sequence. Positional embeddings provide this missing information. Each position in a sequence can have its own positional representation. The token representation and positional representation can then be combined before the information is processed by the transformer.
+
+Consider a simple sentence such as "I am learning Python today". Each token has a position in the sequence. The first token has position zero, the second token has position one, and the following tokens continue in the same way. The exact position allows the model to understand the order of the tokens.
+
+The same token can appear more than once in a sentence. For example, consider the sentence "Python is powerful and Python is popular". The word Python appears twice. The token itself is the same, but its position is different. The first Python appears near the beginning of the sentence, while the second Python appears later.
+
+Absolute positional embeddings represent the exact position of a token in a sequence. Position zero has one positional representation, position one has another representation, and so on. This allows the model to know the exact location of each token.
+
+Relative positional information focuses on the relationship between tokens. Instead of only asking where a token is located in the complete sequence, relative position considers how far one token is from another token. This can help the model understand relationships between nearby and distant tokens.
+
+For example, in the sentence "I love learning Python", the token "I" comes before "love", and "love" comes before "learning". The relative distance between these tokens provides information about their relationship in the sequence.
+
+Positional information becomes especially important when processing longer sequences. A transformer processes many tokens together, so it needs information about the order and position of those tokens. Without positional information, the model would have difficulty distinguishing sequences that contain the same tokens in different orders.
+
+Token embeddings and positional embeddings therefore provide different types of information. Token embeddings represent the tokens themselves, while positional embeddings represent their positions. Together, they create a richer representation that can be processed by the transformer.
+
+The embedding dimension determines how many numerical values are used to represent each token or position. If the embedding dimension is larger, each token and position can be represented using more numerical values. The context length determines how many tokens can be included in a sequence.
+
+For example, if a model processes a sequence containing sixteen tokens and uses an embedding dimension of two hundred fifty-six, the token representations can be viewed as sixteen positions with two hundred fifty-six values for each position.
+
+During training, the model learns useful representations from data. The embedding parameters can be updated as the model learns to predict the next token. Positional representations help the model preserve information about the order of the tokens during this process.
+
+Understanding token embeddings and positional embeddings is an important step toward understanding transformer architecture. Token embeddings answer the question "what is this token?", while positional embeddings answer the question "where is this token?". The transformer uses both types of information to process the sequence.
