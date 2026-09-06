@@ -701,6 +701,49 @@ Input Embedding
 **`[8, 512]` = 8 positions × 512 dimensions**
 
 
+## Complete Data Preprocessing
+
+The complete preprocessing pipeline covers:
+
+1. Load Raw Text
+2. Tokenization
+3. Create Vocabulary
+4. Convert Tokens → Token IDs
+5. BPE Tokenization
+6. Create Input-Target Pairs
+7. Create Dataset
+8. Create DataLoader
+9. Create Batches
+10. Token Embeddings
+11. Positional Embeddings
+12. Combine Token + Positional Embeddings
+13. Final Input Embeddings
+
+## Preprocessing Flow
+
+```text
+Raw Text
+   ↓
+Tokenization
+   ↓
+Token IDs
+   ↓
+Input-Target Pairs
+   ↓
+Dataset
+   ↓
+DataLoader
+   ↓
+Batches
+   ↓
+Token Embeddings
+   ↓
+Positional Embeddings
+   ↓
+Input Embeddings 
+```
+
+
 ### Current Focus
 
 Building a strong understanding of the fundamental components required to construct an LLM from scratch.
