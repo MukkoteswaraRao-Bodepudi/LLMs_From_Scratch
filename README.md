@@ -701,7 +701,7 @@ Input Embedding
 **`[8, 512]` = 8 positions × 512 dimensions**
 
 
-## Complete Data Preprocessing
+## Day 6 Complete Data Preprocessing
 
 The complete preprocessing pipeline covers:
 
@@ -742,6 +742,164 @@ Positional Embeddings
    ↓
 Input Embeddings 
 ```
+# Day 7 Simplified Attention Mechanism
+
+This notebook demonstrates a **simplified attention mechanism without trainable weights** using PyTorch.
+
+## What is Attention?
+
+Attention helps a token determine **which other tokens are more relevant to it**.
+
+The notebook uses the sentence:
+
+> **Your Journey Starts with one step**
+
+Each token is represented using a numerical vector.
+
+## Steps
+
+### 1. Input Vectors
+
+Six tokens are represented as vectors:
+
+```text
+Your
+Journey
+Starts
+with
+one
+step
+```
+
+Each token has a 3-dimensional vector.
+
+### 2. Calculate Attention Scores
+
+The **dot product** is used to measure how well two vectors are aligned.
+
+For example, `Journey` is selected as the query and its dot product is calculated with every input vector.
+
+```python
+attention_scores[i] = torch.dot(x_i, query)
+```
+
+### 3. Normalize Attention Scores
+
+The raw scores are converted into **attention weights**.
+
+A simple normalization is:
+
+```python
+attention_weights = attention_scores / attention_scores.sum()
+```
+
+The notebook also demonstrates **Softmax**:
+
+```python
+attention_weights = torch.softmax(attention_scores, dim=0)
+```
+
+The attention weights sum to `1`.
+
+### 4. Create the Context Vector
+
+The attention weights are multiplied by their corresponding input vectors and then added together.
+
+```python
+context_vector += attention_weights[i] * x_i
+```
+
+This produces a **context vector** for the selected token.
+
+### 5. Calculate Attention for All Tokens
+
+Instead of calculating each dot product using loops:
+
+```python
+final_attn_scores = inputs @ inputs.T
+```
+
+This calculates the attention scores for all tokens at once.
+
+### 6. Calculate Final Attention Weights
+
+Softmax is applied across each row:
+
+```python
+final_attention_weights = torch.softmax(
+    final_attention_scores,
+    dim=1
+)
+```
+
+Each row represents how one token attends to all the tokens.
+
+### 7. Calculate Final Context Vectors
+
+The final context vectors are calculated using matrix multiplication:
+
+```python
+final_context_vectors = final_attention_weights @ inputs
+```
+
+## Complete Flow
+
+```text
+Input Vectors
+      ↓
+Dot Product
+      ↓
+Attention Scores
+      ↓
+Softmax
+      ↓
+Attention Weights
+      ↓
+Weighted Sum
+      ↓
+Context Vectors
+```
+
+## Key Concepts
+
+* Input vectors
+* Query
+* Dot product
+* Attention scores
+* Attention weights
+* Softmax
+* Context vector
+* Matrix multiplication
+* Attention without trainable weights
+
+## Requirement
+
+```bash
+pip install torch
+```
+
+## Run
+
+Open the notebook:
+
+```text
+07_simplified_attention(1).ipynb
+```
+
+and run the cells sequentially.
+
+## Summary
+
+This notebook builds attention step by step:
+
+```text
+Vectors
+→ Similarity Scores
+→ Attention Weights
+→ Weighted Context
+```
+
+It provides a basic understanding of how attention works before moving to **trainable Query, Key, and Value matrices**.
 
 
 ### Current Focus
