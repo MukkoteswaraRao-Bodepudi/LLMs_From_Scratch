@@ -902,6 +902,66 @@ Vectors
 It provides a basic understanding of how attention works before moving to **trainable Query, Key, and Value matrices**.
 
 
+# Self-Attention with Trainable Weights
+
+This notebook demonstrates the **Self-Attention mechanism with trainable weights** using PyTorch.
+
+## Overview
+
+Self-Attention allows each token in a sequence to understand its relationship with other tokens in the same sequence.
+
+The notebook uses the sentence:
+
+**Your Journey Starts with one step**
+
+Each token is represented using an input vector.
+
+## Main Steps
+
+1. **Input Embeddings**
+   Represent each token as a numerical vector.
+
+2. **Query, Key, and Value**
+   Transform the input vectors into Query, Key, and Value representations using trainable weight matrices.
+
+3. **Attention Scores**
+   Calculate the similarity between Query and Key vectors using the dot product.
+
+4. **Scaling**
+   Scale the attention scores using the square root of the key dimension to maintain stable values.
+
+5. **Softmax**
+   Convert the attention scores into attention weights.
+
+6. **Context Vectors**
+   Use the attention weights to calculate weighted combinations of the Value vectors.
+
+## Attention Flow
+
+**Input Embeddings → Query, Key, Value → Attention Scores → Scaling → Softmax → Attention Weights → Context Vectors**
+
+## Key Concepts
+
+* Self-Attention
+* Query, Key, and Value
+* Trainable Weights
+* Attention Scores
+* Softmax
+* Attention Weights
+* Context Vectors
+* Scaled Dot-Product Attention
+
+## Requirements
+
+* Python
+* PyTorch
+* Jupyter Notebook
+
+## Purpose
+
+The purpose of this notebook is to understand the basic working of **Self-Attention with trainable Query, Key, and Value weights**, which is an important component of Transformer models.
+
+
 ### Current Focus
 
 Building a strong understanding of the fundamental components required to construct an LLM from scratch.
