@@ -902,7 +902,7 @@ Vectors
 It provides a basic understanding of how attention works before moving to **trainable Query, Key, and Value matrices**.
 
 
-# Self-Attention with Trainable Weights
+# Day 8 Self-Attention with Trainable Weights
 
 This notebook demonstrates the **Self-Attention mechanism with trainable weights** using PyTorch.
 
@@ -960,6 +960,87 @@ Each token is represented using an input vector.
 ## Purpose
 
 The purpose of this notebook is to understand the basic working of **Self-Attention with trainable Query, Key, and Value weights**, which is an important component of Transformer models.
+
+# Day 9 Causal Self-Attention
+
+This notebook demonstrates the **Causal Self-Attention mechanism** using PyTorch.
+
+## Overview
+
+Causal Self-Attention is a type of attention mechanism where each token can attend to the **current token and previous tokens**, but not to future tokens.
+
+This prevents future information from being used when processing the current token.
+
+## Main Steps
+
+1. **Input Embeddings**
+   The input sentence is represented as numerical vectors.
+
+2. **Query, Key, and Value**
+   Trainable weights are used to create Query, Key, and Value representations.
+
+3. **Attention Scores**
+   Attention scores are calculated between Query and Key vectors.
+
+4. **Causal Masking**
+   Future tokens are masked so that the current token cannot access information from future positions.
+
+5. **Softmax**
+   The masked attention scores are converted into attention weights.
+
+6. **Dropout**
+   Dropout is applied to the attention weights to reduce overfitting.
+
+7. **Context Vectors**
+   The attention weights are combined with the Value vectors to produce context vectors.
+
+## Causal Masking
+
+The attention matrix is masked in the upper triangular region.
+
+This ensures:
+
+* The first token can attend only to itself.
+* The second token can attend to the first and second tokens.
+* The third token can attend to the first, second, and third tokens.
+* Future tokens are not accessible.
+
+## Attention Flow
+
+**Input Embeddings → Query, Key, Value → Attention Scores → Causal Masking → Softmax → Dropout → Context Vectors**
+
+## Batch Processing
+
+The notebook also demonstrates how to process multiple input sequences together using a batch.
+
+The input is represented as a 3-dimensional tensor containing:
+
+* Multiple input sequences
+* Multiple tokens
+* Vector representation of each token
+
+## Key Concepts
+
+* Causal Self-Attention
+* Query, Key, and Value
+* Attention Scores
+* Causal Masking
+* Softmax
+* Dropout
+* Context Vectors
+* Batch Processing
+* PyTorch
+
+## Requirements
+
+* Python
+* PyTorch
+* Jupyter Notebook
+
+## Purpose
+
+The purpose of this notebook is to understand how **Causal Self-Attention prevents future information leakage** and produces context vectors while processing a sequence.
+
 
 
 ### Current Focus
