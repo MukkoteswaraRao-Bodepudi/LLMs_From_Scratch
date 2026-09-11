@@ -1041,6 +1041,178 @@ The input is represented as a 3-dimensional tensor containing:
 
 The purpose of this notebook is to understand how **Causal Self-Attention prevents future information leakage** and produces context vectors while processing a sequence.
 
+# Day 10 Simple Multi-Head Attention
+
+## Overview
+
+Multi-Head Attention uses multiple attention heads instead of a single attention mechanism.
+
+Each head performs its own attention operation and can learn different relationships between tokens.
+
+In this task, we combine **Multi-Head Attention** with **Causal Self-Attention**.
+
+## Why Multi-Head Attention?
+
+A single attention head may focus on one type of relationship between tokens.
+
+Multiple heads allow the model to learn different relationships at the same time.
+
+For example:
+
+Input
+↓
+Attention Head 1
+Attention Head 2
+↓
+Concatenate
+↓
+Combined Output
+
+Each attention head has its own Query, Key, and Value projections.
+
+## Causal Attention
+
+Causal attention prevents a token from attending to future tokens.
+
+A token can attend to:
+
+- Previous tokens
+- The current token
+
+A token cannot attend to:
+
+- Future tokens
+
+This is important for GPT-style language models because they predict the next token using only the information available so far.
+
+## Multi-Head Causal Attention Flow
+
+Input Embeddings
+↓
+Create Query, Key, and Value
+↓
+Split into Multiple Heads
+↓
+Calculate Attention Scores
+↓
+Apply Causal Mask
+↓
+Scale Attention Scores
+↓
+Apply Softmax
+↓
+Calculate Context Vectors
+↓
+Concatenate Head Outputs
+↓
+Final Multi-Head Attention Output
+
+## Attention Head
+
+Each attention head performs attention independently.
+
+For example, with two heads:
+
+Head 1
+→ Query, Key, Value
+→ Causal Attention
+→ Context Vector
+
+Head 2
+→ Query, Key, Value
+→ Causal Attention
+→ Context Vector
+
+The outputs from both heads are then concatenated.
+
+## Main Steps
+
+1. Create input embeddings.
+2. Define multiple attention heads.
+3. Create Query, Key, and Value projections.
+4. Calculate attention scores.
+5. Apply the causal mask.
+6. Scale the attention scores.
+7. Apply Softmax.
+8. Calculate the context vector for each head.
+9. Concatenate the outputs from all heads.
+10. Produce the final multi-head attention output.
+
+## Key Concepts
+
+### Attention Head
+
+An independent attention mechanism that learns relationships between tokens.
+
+### Query
+
+Represents what information a token is looking for.
+
+### Key
+
+Represents information that can be matched against a Query.
+
+### Value
+
+Contains the information used to create the final context representation.
+
+### Causal Mask
+
+Prevents tokens from attending to future tokens.
+
+### Attention Scores
+
+Measure the similarity between Queries and Keys.
+
+### Attention Weights
+
+Softmax converts attention scores into weights that determine how much attention each token receives.
+
+### Context Vector
+
+A weighted combination of Value vectors.
+
+### Concatenation
+
+Combines the outputs from all attention heads into a single representation.
+
+## Simple Example
+
+For the sentence:
+
+The student reads a book.
+
+When processing:
+
+student
+
+the model can attend to:
+
+The
+student
+
+but it cannot attend to:
+
+reads
+a
+book
+
+This restriction is applied independently in every attention head.
+
+## Summary
+
+Multi-Head Attention allows the model to learn different relationships between tokens using multiple attention heads.
+
+Causal masking ensures that each token can only use information from previous and current tokens.
+
+Therefore:
+
+Multi-Head Attention
++
+Causal Attention
+=
+Simple Multi-Head Causal Attention
+
 
 
 ### Current Focus
