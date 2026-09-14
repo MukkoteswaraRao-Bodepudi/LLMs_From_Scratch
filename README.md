@@ -1214,6 +1214,81 @@ Causal Attention
 Simple Multi-Head Causal Attention
 
 
+# Day 11 Multi-Head Attention with Weight Splits
+
+This notebook demonstrates the **Multi-Head Attention mechanism** using PyTorch.
+
+## Overview
+
+Multi-Head Attention allows the model to process different relationships between tokens using multiple attention heads.
+
+The notebook uses the sentence:
+
+**The cat quietly watches birds**
+
+Each token is represented using a 6-dimensional input vector.
+
+## Main Steps
+
+1. **Input Embeddings**
+   Represent each token using a numerical vector.
+
+2. **Set Dimensions and Heads**
+   The output dimension is divided into multiple attention heads.
+
+3. **Trainable Weight Matrices**
+   Separate trainable weight matrices are used to create Query, Key, and Value representations.
+
+4. **Calculate Query, Key, and Value**
+   The input embeddings are transformed into Query, Key, and Value matrices.
+
+5. **Split into Multiple Heads**
+   The Query, Key, and Value representations are divided across the attention heads.
+
+6. **Calculate Attention Scores**
+   Each head calculates attention scores between Query and Key representations.
+
+7. **Causal Masking**
+   Future tokens are masked so that a token cannot attend to future positions.
+
+8. **Attention Weights**
+   Softmax is applied to the scaled attention scores to obtain attention weights.
+
+9. **Context Vectors**
+   Attention weights are applied to the Value representations to generate context vectors for each head.
+
+10. **Combine Heads**
+    The outputs from all attention heads are combined to produce the final context vectors.
+
+## Attention Flow
+
+**Input Embeddings → Query, Key, Value → Split into Heads → Attention Scores → Causal Masking → Softmax → Context Vectors → Combine Heads**
+
+## Key Concepts
+
+* Multi-Head Attention
+* Query, Key, and Value
+* Trainable Weight Matrices
+* Attention Scores
+* Attention Weights
+* Causal Masking
+* Softmax
+* Context Vectors
+* Multiple Attention Heads
+* Batch Processing
+
+## Requirements
+
+* Python
+* PyTorch
+* Jupyter Notebook
+
+## Purpose
+
+The purpose of this notebook is to understand how **Multi-Head Attention splits Query, Key, and Value representations into multiple heads**, performs attention independently for each head, and combines the results into the final context vectors.
+
+
+
 
 ### Current Focus
 
