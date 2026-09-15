@@ -1287,6 +1287,67 @@ Each token is represented using a 6-dimensional input vector.
 
 The purpose of this notebook is to understand how **Multi-Head Attention splits Query, Key, and Value representations into multiple heads**, performs attention independently for each head, and combines the results into the final context vectors.
 
+# Day 12 Layer Normalization
+
+This notebook demonstrates **Layer Normalization** using PyTorch.
+
+## Overview
+
+Layer Normalization is used in Transformer models to normalize the values within each token's representation.
+
+It helps keep the representations in a stable range, making the training process more stable and effective.
+
+## Main Steps
+
+1. **Input Representation**
+   Uses multiple tokens with a fixed-dimensional representation.
+
+2. **Calculate Mean**
+   The mean is calculated independently for each token.
+
+3. **Calculate Variance**
+   The variance is calculated independently for each token.
+
+4. **Normalize the Values**
+   Each token's values are normalized using its mean and variance.
+
+5. **PyTorch LayerNorm**
+   The notebook compares the manual implementation with PyTorch's `LayerNorm`.
+
+6. **Trainable Parameters**
+   Layer Normalization uses trainable scale and shift parameters:
+
+   * **Scale (Gamma)** – controls the magnitude of the normalized values.
+   * **Shift (Beta)** – controls the offset of the normalized values.
+
+7. **Custom LayerNorm**
+   A custom Layer Normalization class is implemented to understand how LayerNorm works internally.
+
+## Layer Normalization Flow
+
+**Input → Mean & Variance → Normalization → Scale & Shift → Output**
+
+## Key Concepts
+
+* Layer Normalization
+* Mean
+* Variance
+* Normalization
+* Epsilon
+* Scale (Gamma)
+* Shift (Beta)
+* PyTorch LayerNorm
+* Custom LayerNorm
+
+## Requirements
+
+* Python
+* PyTorch
+* Jupyter Notebook
+
+## Purpose
+
+The purpose of this notebook is to understand how **Layer Normalization works inside Transformer models**, including its manual calculation, PyTorch implementation, and trainable scale and shift parameters.
 
 
 
